@@ -1,0 +1,22 @@
+<div class="container d-flex justify-content-center">
+  <div class="row flex-column">
+    <div class="col-12">
+      <h1 class="mb-3 mt-3 text-align-center">New Game</h1>
+    </div>
+    <div class="col-6">
+      <div class="d-inline-flex gap-3">
+      <% @letters.each do |letter| %>
+        <div class="btn btn-primary col"><%= letter %></div>
+      <% end %>
+      </div>
+    </div>
+    <div class="col-12">
+      <form action="score" method="post" data-turbo="false" class="mb-3 mt-3 row">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input id="letters" name="letters" type="hidden" value="<%= @letters.join() %>"/>
+        <input type="text" name="answer" class="form-control col">
+        <input type="submit" value="Play" class="btn btn-light col-2">
+      </form>
+    </div>
+  </div>
+</div>

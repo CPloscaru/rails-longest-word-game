@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Result</h1>
+  <% if !@apiCall["found"] %>
+        <p> Sorry but <strong> <%= @answer.upcase %></strong> does not seem to be a valid English word</p>
+      <% elsif @tmp.include?(false) %>
+        <p> Sorry but <strong> <%= @answer.upcase %></strong> can't be built out of <%= @letters.join(', ') %></p>
+      <% else %>
+        <p><strong>Congratulations!</strong> <% @answer %> is a valid English word!</p>
+  <% end  %>
+
+  <a href="/new" style="text-decoration:none;">Play again</a>
+  <p class = "mt-3">Votre score actuel est de <%= session[:score] %></p>
+</div>
